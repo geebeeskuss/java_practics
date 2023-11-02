@@ -12,25 +12,31 @@ public class PrimeFactors {
             return;
         }
 
-        findAndPrintPrimeFactors(n);
+        findAndPrintPrimeFactors(n,2);
+    }
+    public static boolean isPrime(int n, int divisor) {
+        if (n <= 2) {
+            return (n == 2);
+        }
+        if (n % divisor == 0) {
+            return false;
+        }
+        if (divisor * divisor > n) {
+            return true;
+        }
+        return isPrime(n, divisor + 1);
     }
 
-    public static void findAndPrintPrimeFactors(int n) {
-        for (int divisor = 2; divisor * divisor <= n; divisor++) {
-            int count = 0;
-            while (n % divisor == 0) {
-                n /= divisor;
-                count++;
-            }
-            if (count > 0) {
-                for (int i = 0; i < count; i++) {
-                    System.out.print(divisor + " ");
-                    break;
-                }
-            }
+    public static void findAndPrintPrimeFactors(int n,int divisor) {
+        if (n <= 2) {
+            System.out.println(n);
         }
-        if (n > 1) {
-            System.out.print(n + " ");
+        if (n % divisor == 0 && isPrime(divisor,2)) {
+            System.out.println(divisor+" ");
         }
+        if(divisor <= n) {
+            findAndPrintPrimeFactors(n, divisor + 1);
+        }
+
     }
 }
