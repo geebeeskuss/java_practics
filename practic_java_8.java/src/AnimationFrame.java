@@ -9,13 +9,13 @@ public class AnimationFrame extends JFrame {
 
     public AnimationFrame() {
         setTitle("Простая анимация");
-        setSize(400, 400);
+        setSize(550, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Загрузка кадров анимации
         frames = new ImageIcon[9];
         for (int i = 0; i < frames.length; i++) {
-            frames[i] = new ImageIcon("/Users/mac/Desktop/Птичка" + (i + 1) + ".png");
+            frames[i] = new ImageIcon("D:/новыезагрузки/pract/" + (i + 1) + ".gif");
         }
 
         animationLabel = new JLabel();
